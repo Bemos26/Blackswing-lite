@@ -58,8 +58,8 @@
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="#teach">Teach with Us</a></li>
-          <li><a href="#login">Login</a></li>
+          <!-- <li><a href="#teach">Teach with Us</a></li>
+          <li><a href="#login">Login</a></li> -->
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -1010,7 +1010,7 @@
           <i class="bi bi-music-note-beamed"></i>
           <span>Professional Excellence</span>
         </div>
-        <button class="modal-close" id="close-modal">&times;</button>
+        <button class="modal-close" data-close="professional-modal">&times;</button>
       </div>
       <div class="modal-body">
         <div class="modal-section">
@@ -1040,39 +1040,102 @@
     </div>
   </div>
 
+  <!-- Punctual Modal -->
+  <div class="modal-overlay" id="punctual-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-header-title">
+          <i class="bi bi-clock"></i>
+          <span>Always On Time</span>
+        </div>
+        <button class="modal-close" data-close="punctual-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <div class="modal-section-title">Reliability You Can Trust</div>
+          <div class="modal-section-text">
+            At Black Swing, punctuality isn't just a promise—it's our standard. We arrive early for every performance,
+            allowing ample time for setup, sound checks, and coordination with your event team to ensure everything runs
+            seamlessly.
+          </div>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-title">Professional Preparation</div>
+          <div class="modal-section-text">
+            Our musicians arrive dressed in elegant performance attire, instruments tuned and ready. We coordinate with
+            venue staff and sound engineers to ensure optimal acoustics before your first guest arrives.
+          </div>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-title">Your Peace of Mind</div>
+          <div class="modal-section-text">
+            When you book Black Swing, you can focus entirely on enjoying your event. We handle all musical aspects with
+            military precision, from arrival to final encore, ensuring your timeline stays on track.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const modal = document.getElementById('professional-modal');
-      const closeBtn = document.getElementById('close-modal');
-      const triggerLink = document.querySelector('.icon-box i.bi-music-note-beamed').closest('.icon-box').querySelector('h3 a');
-      const triggerIcon = document.querySelector('.icon-box i.bi-music-note-beamed');
+      // Configuration for mapping icons/links to modals
+      const modalTriggers = [
+        { selector: '.icon-box i.bi-music-note-beamed', modalId: 'professional-modal' },
+        { selector: '.icon-box i.bi-clock', modalId: 'punctual-modal' }
+      ];
 
-      function openModal(e) {
-        e.preventDefault();
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
       }
 
-      function closeModal() {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
+      function closeModal(modal) {
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
       }
 
-      if (triggerLink) triggerLink.addEventListener('click', openModal);
-      // Also make the icon clickable if desired, or finding the parent container
-      if (triggerIcon) {
-        triggerIcon.parentElement.style.cursor = 'pointer';
-        triggerIcon.parentElement.addEventListener('click', (e) => {
-          // Check if logic isn't double firing with the link
-          if (!e.target.closest('a')) openModal(e);
+      function setupTrigger(triggerInfo) {
+        const icon = document.querySelector(triggerInfo.selector);
+        if (!icon) return;
+
+        const iconBox = icon.closest('.icon-box');
+        const link = iconBox.querySelector('h3 a');
+
+        const handler = (e) => {
+          e.preventDefault();
+          openModal(triggerInfo.modalId);
+        };
+
+        if (link) link.addEventListener('click', handler);
+
+        if (iconBox) {
+          iconBox.style.cursor = 'pointer';
+          iconBox.addEventListener('click', (e) => {
+            if (!e.target.closest('a')) handler(e);
+          });
+        }
+      }
+
+      modalTriggers.forEach(setupTrigger);
+
+      document.querySelectorAll('.modal-close').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const modalId = btn.getAttribute('data-close');
+          const modal = document.getElementById(modalId);
+          closeModal(modal);
         });
-      }
+      });
 
-      closeBtn.addEventListener('click', closeModal);
-
-      // Close on outside click
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
+      document.querySelectorAll('.modal-overlay').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal(modal);
+        });
       });
     });
   </script>
