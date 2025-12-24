@@ -264,20 +264,159 @@
         <p>Check our Portfolio</p>
       </div><!-- End Section Title -->
 
-      <div class="container">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+        <div class="portfolio-details-slider swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+               "navigation": {
+                "nextEl": ".swiper-button-next",
+                "prevEl": ".swiper-button-prev"
+              }
+            }
+          </script>
 
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-          </ul><!-- End Portfolio Filters -->
+          <style>
+            /* Custom styles for portfolio slider navigation */
+            .portfolio-details-slider .swiper-button-next,
+            .portfolio-details-slider .swiper-button-prev {
+              background-color: rgba(255, 196, 81, 0.8);
+              /* Accent color with transparency */
+              color: #000;
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              opacity: 0;
+              transition: opacity 0.3s ease;
+            }
 
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+            .portfolio-details-slider .swiper-button-next:after,
+            .portfolio-details-slider .swiper-button-prev:after {
+              font-size: 18px;
+              font-weight: bold;
+            }
 
+            .portfolio-details-slider:hover .swiper-button-next,
+            .portfolio-details-slider:hover .swiper-button-prev {
+              opacity: 1;
+            }
 
+            .portfolio-details-slider .swiper-slide img {
+              width: 100%;
+              max-height: 600px;
+              object-fit: cover;
+              border-radius: 8px;
+            }
 
-          </div><!-- End Portfolio Container -->
+            .portfolio-details-slider .portfolio-info {
+              background: rgba(255, 255, 255, 0.9);
+              padding: 30px;
+              position: absolute;
+              bottom: 20px;
+              left: 20px;
+              right: 20px;
+              border-radius: 4px;
+            }
 
+            .portfolio-details-slider .portfolio-info h3 {
+              font-size: 22px;
+              font-weight: 700;
+              margin-bottom: 10px;
+            }
+
+            .portfolio-details-slider .portfolio-info p {
+              margin-bottom: 0;
+            }
+          </style>
+
+          <div class="swiper-wrapper align-items-center">
+
+            <div class="swiper-slide">
+              <div class="portfolio-item position-relative">
+                <img src="assets/img/portfolio/portfolio-1.jpg" alt="Live Performance" class="img-fluid">
+                <div class="portfolio-info">
+                  <h3>Live Performance</h3>
+                  <p>Captivating audiences with every note.</p>
+                  <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolio-gallery"
+                    class="glightbox preview-link"
+                    style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: #333;"><i
+                      class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="portfolio-item position-relative">
+                <img src="assets/img/portfolio/portfolio-2.jpg" alt="Dynamic Duo" class="img-fluid">
+                <div class="portfolio-info">
+                  <h3>Dynamic Duo</h3>
+                  <p>Our brass section brings the energy.</p>
+                  <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolio-gallery"
+                    class="glightbox preview-link"
+                    style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: #333;"><i
+                      class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="portfolio-item position-relative">
+                <img src="assets/img/portfolio/portfolio-3.jpg" alt="The Team" class="img-fluid">
+                <div class="portfolio-info">
+                  <h3>The Team</h3>
+                  <p>Passionate musicians dedicated to your event.</p>
+                  <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolio-gallery"
+                    class="glightbox preview-link"
+                    style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: #333;"><i
+                      class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="portfolio-item position-relative">
+                <img src="assets/img/portfolio/portfolio-4.jpg" alt="Rehearsal Vibes" class="img-fluid">
+                <div class="portfolio-info">
+                  <h3>Rehearsal Vibes</h3>
+                  <p>Perfecting our craft in serenity.</p>
+                  <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolio-gallery"
+                    class="glightbox preview-link"
+                    style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: #333;"><i
+                      class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="portfolio-item position-relative">
+                <img src="assets/img/portfolio/portfolio-5.jpg" alt="The Full Ensemble" class="img-fluid">
+                <div class="portfolio-info">
+                  <h3>The Full Ensemble</h3>
+                  <p>Ready to bring the swing to your celebration.</p>
+                  <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolio-gallery"
+                    class="glightbox preview-link"
+                    style="position: absolute; top: 10px; right: 10px; font-size: 24px; color: #333;"><i
+                      class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
         </div>
 
       </div>
