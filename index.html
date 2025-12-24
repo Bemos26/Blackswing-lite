@@ -1077,6 +1077,45 @@
     </div>
   </div>
 
+  <!-- Elegant Presence Modal -->
+  <div class="modal-overlay" id="presence-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-header-title">
+          <i class="bi bi-star"></i>
+          <span>Sophisticated Showmanship</span>
+        </div>
+        <button class="modal-close" data-close="presence-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <div class="modal-section-title">Visual Excellence</div>
+          <div class="modal-section-text">
+            Black Swing Jazz Band understands that great performances engage all the senses. Our musicians arrive in
+            sophisticated attire—sharply tailored suits in classic blacks, blues, and grays—complemented by elegant
+            accessories that reflect the timeless style of the jazz golden age.
+          </div>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-title">Professional Stage Presence</div>
+          <div class="modal-section-text">
+            From our opening note to our final bow, we maintain the poise and professionalism that defines world-class
+            entertainment. Our stage presence is refined yet engaging, creating an atmosphere of sophistication that
+            elevates your entire event.
+          </div>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-title">Memorable Impression</div>
+          <div class="modal-section-text">
+            We don't just perform—we create an experience. The sight of gleaming brass instruments, the coordinated
+            movements of our ensemble, and the evident passion in our performance combine to leave a lasting impression
+            on your guests.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Configuration for mapping icons/links to modals
@@ -1084,7 +1123,8 @@
         { selector: '.icon-box i.bi-music-note-beamed', modalId: 'professional-modal' },
         { selector: '.icon-box i.bi-clock', modalId: 'punctual-modal' },
         { selector: '.icon-box i.bi-sliders', modalId: 'tailored-modal' },
-        { selector: '.icon-box i.bi-soundwave', modalId: 'audio-modal' }
+        { selector: '.icon-box i.bi-soundwave', modalId: 'audio-modal' },
+        { selector: '.icon-box i.bi-star', modalId: 'presence-modal' }
       ];
 
       function openModal(modalId) {
