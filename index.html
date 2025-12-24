@@ -1001,6 +1001,82 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 
+  <!-- Professional Modal -->
+  <link href="assets/css/modal.css" rel="stylesheet">
+  <div class="modal-overlay" id="professional-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-header-title">
+          <i class="bi bi-music-note-beamed"></i>
+          <span>Professional Excellence</span>
+        </div>
+        <button class="modal-close" id="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <div class="modal-section-title">World-Class Musicians</div>
+          <div class="modal-section-text">
+            Black Swing Jazz Band comprises professionally trained musicians with years of experience performing at
+            Kenya's most prestigious venues. Our ensemble features graduates from renowned music conservatories who have
+            mastered their instruments through rigorous training and countless live performances.
+          </div>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-title">Precision & Artistry</div>
+          <div class="modal-section-text">
+            From the smooth tones of our saxophonists to the vibrant brass of our trumpet and clarinet players, each
+            member brings technical mastery and creative flair. We don't just play music—we tell stories through every
+            note, creating an atmosphere that transforms your event into an unforgettable experience.
+          </div>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-title">Proven Track Record</div>
+          <div class="modal-section-text">
+            We've performed at high-profile corporate galas, elegant weddings, and exclusive private functions across
+            Nairobi and beyond, consistently delivering performances that exceed client expectations.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('professional-modal');
+      const closeBtn = document.getElementById('close-modal');
+      const triggerLink = document.querySelector('.icon-box i.bi-music-note-beamed').closest('.icon-box').querySelector('h3 a');
+      const triggerIcon = document.querySelector('.icon-box i.bi-music-note-beamed');
+
+      function openModal(e) {
+        e.preventDefault();
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      }
+
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (triggerLink) triggerLink.addEventListener('click', openModal);
+      // Also make the icon clickable if desired, or finding the parent container
+      if (triggerIcon) {
+        triggerIcon.parentElement.style.cursor = 'pointer';
+        triggerIcon.parentElement.addEventListener('click', (e) => {
+          // Check if logic isn't double firing with the link
+          if (!e.target.closest('a')) openModal(e);
+        });
+      }
+
+      closeBtn.addEventListener('click', closeModal);
+
+      // Close on outside click
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+    });
+  </script>
+
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
