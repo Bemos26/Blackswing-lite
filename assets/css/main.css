@@ -1742,3 +1742,18 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/* Service Item CTA Hover Effect */
+.service-item .mt-3 span.text-warning {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.service-item:hover .mt-3 span.text-warning {
+  border-color: var(--accent-color);
+  background-color: rgba(255, 196, 81, 0.1);
+  box-shadow: 0 0 15px rgba(255, 196, 81, 0.4);
+}
