@@ -1739,10 +1739,6 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
-
 /* Service Item CTA Hover Effect */
 .service-item .mt-3 span.text-warning {
   display: inline-block;
@@ -1756,4 +1752,21 @@ section,
   border-color: var(--accent-color);
   background-color: rgba(255, 196, 81, 0.1);
   box-shadow: 0 0 15px rgba(255, 196, 81, 0.4);
+}
+
+/* Home Icon Box CTA Hover Effect */
+.icon-box .home-cta-btn {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  opacity: 0.9;
+}
+
+.icon-box:hover .home-cta-btn {
+  border-color: var(--accent-color);
+  background-color: rgba(255, 196, 81, 0.1);
+  box-shadow: 0 0 10px rgba(255, 196, 81, 0.3);
+  opacity: 1;
 }
